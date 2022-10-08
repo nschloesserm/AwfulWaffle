@@ -1,40 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% block content %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>The Awful Waffle</title>
-    <script src="https://kit.fontawesome.com/bedd59169c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin+Sketch&amp;display=swap">
-</head>
-
-<body style="font-family: 'Cabin Sketch', serif;">
-    <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
-        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><span
-                    style="font-family: 'Cabin Sketch', serif;font-size: 40px;"><svg xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="margin-bottom: 8px;">
-                        
-                    </svg><i class="fa-solid fa-stroopwafel"></i> The Awful Waffle</span></a><button data-toggle="collapse" class="navbar-toggler"
-                data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
-                    class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1" style="padding-right: 8px;">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#"
-                        style="font-size: 22px;">HOME </a></li> 
-                    <li class="nav-item"><a class="nav-link" href="#"
-                            style="font-size: 22px;">MENU </a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"
-                            style="font-size: 22px;">BOOK TABLE </a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"
-                            style="font-size: 22px;">CONTACT </a></li>
-                </ul>
+<div class="container py-4 py-xl-5" style="margin-bottom: -25px;">
+    <div class="row" style="margin-bottom: -43px;margin-top: -24px;">
+        <div class="col-md-6 mb-4">
+            <div class="p-xl-5 m-xl-5"><img class="rounded img-fluid tada animated w-100 fit-cover"
+                    src="{{ url_for('static', filename='img/awfulwaffleimg.png') }}" style="margin-top: 6px;margin-bottom: -34px;"></div>
+        </div>
+        <div class="col-md-6 d-md-flex align-items-md-center mb-4">
+            <div style="text-align: center;">
+                <h2 class="text-uppercase font-weight-bold" style="text-align: center;font-size: 30px;">Welcome to the
+                    awful waffle</h2>
+                <p class="my-3" style="text-align: center;">Creating the best tasting naughty waffles since 2019</p><a
+                    class="btn btn-primary btn-lg bounce animated mr-2" role="button" href="#"
+                    style="font-size: 30px;text-align: center;font-family: 'Cabin Sketch', serif;background: rgb(219,142,44);border-style: none;border-radius: 9.8px;margin-top: 15px;">CALL
+                    US</a>
             </div>
         </div>
-    </nav>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>
-</body>
+    </div>
+</div>
 
-</html>
+{% endblock %}
