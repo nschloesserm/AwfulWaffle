@@ -1,4 +1,49 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Contact</h1>
+</br>
+<div class="container position-relative">
+    <div class="row mb-5">
+        <div class="col-md-8 col-xl-6 text-center mx-auto">
+            <h2 class="font-weight-bold">Contact us</h2>
+            <p class="w-lg-50">Tell us what you need!!!</p>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6 col-xl-4">
+            <div class="d-flex flex-column justify-content-center align-items-start h-100" style="margin-top: -28px;margin-bottom: -23px;">
+                <div class="d-flex align-items-center p-3">
+                    <div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon bs-icon-md" style="background: rgb(219,142,44);"><i class="fa-solid fa-phone"></i></div>
+                    <div class="px-2">
+                        <h6 class="font-weight-bold mb-0">Phone</h6>
+                        <p class="mb-0">+123456789</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center p-3">
+                    <div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon bs-icon-md" style="background: rgb(219,142,44);"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="px-2">
+                        <h6 class="font-weight-bold mb-0">Email</h6>
+                        <p class="mb-0">info@fake.com</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center p-3">
+                    <div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon bs-icon-md" style="background: rgb(219,142,44);"><i class="fa-solid fa-thumbtack"></i></div>
+                    <div class="px-2">
+                        <h6 class="font-weight-bold mb-0">Location</h6>
+                        <p class="mb-0">123 Fake Street</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-4" style="margin-bottom: -27px;">
+            <div>
+                <form class="p-3 p-xl-4" method="post">
+                    <div class="mb-3"><input class="form-control" type="text" id="name-1" name="name" placeholder="Name"></div>
+                    <div class="mb-3"><input class="form-control" type="email" id="email-1" name="email" placeholder="Email"></div>
+                    <div class="mb-3"><textarea class="form-control" id="message-1" name="message" rows="6" placeholder="Message"></textarea></div>
+                    <div><button class="btn btn-primary bounce animated d-block w-100" type="submit" style="background: rgb(219,142,44);border-style: none;border-radius: 10px;">Send </button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
