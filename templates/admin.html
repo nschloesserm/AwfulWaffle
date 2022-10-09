@@ -3,7 +3,7 @@
 <h1>Admin</h1>
 <div class="content">
     {% for customer in customers %}
-        <div class="student">
+        <div class="customer">
             <b>
                 <p class="name">{{ customer.fullname }}</p>
             </b>
@@ -17,6 +17,12 @@
                 <h4>message</h4>
                 <p>{{ customer.specialmessage }}</p>
             </div>
+            <a href="/{{customer.id}}/editcustomer/">EDIT</a>
+            <form method="POST"
+                action="{{ url_for('delete', customer_id=customer.id) }}">
+            <input type="submit" value="Delete Customer"
+                onclick="return confirm('Are you sure you want to delete this booking?')">
+            </form>
         </div>
     {% endfor %}
 </div>

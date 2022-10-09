@@ -8,18 +8,16 @@
                     <h2 class="font-weight-bold mb-3" style="margin-bottom: 20px;">Edit Customer</h2>
                     <form method="POST">
                         <div class="mb-3">
-                            <input class="form-control" type="text" id="name-2" name="fullname" placeholder="Name"
-                                style="margin-bottom: 20px;">
+                            <input class="form-control" type="text" id="name-2" name="fullname" placeholder="Name" 
+                            value={{ customer.fullname }} style="margin-bottom: 20px;">
                             <input class="form-control" type="email" id="email-2" name="email" placeholder="Email"
-                                style="margin-bottom: 20px;">
+                            value={{ customer.email }} style="margin-bottom: 20px;">
                             <input class="form-control" type="tel" name="phone" placeholder="Telephone"
-                                style="margin-bottom: 20px;">
+                            value={{ customer.phone }} style="margin-bottom: 20px;">
                             <input class="form-control" type="date" name ="resdate" style="margin-bottom: 20px;">
                             <h5 class="text-left">Number in party:</h5>
-                            <p class="text-left" style="color: rgba(83,88,92,0.7);font-size: 10px;">
-                                If party is more than 6 please contact us for availability!</p>
                             <select class="form-control" name="partysize" style="margin-bottom: 20px;">
-                                <option value="2" selected="">1</option>
+                                <option value="1" selected="">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -40,12 +38,9 @@
                                 <option value="9:30">9:30pm</option>
                                 <option value="10:00">10:00pm</option>
                             </select>
-                            <textarea class="form-control" id="message-2" name="specialmessage" rows="4"
-                                placeholder="Special request"></textarea>
                         </div>
                         <div><button class="btn btn-primary d-block w-100" type="submit"
-                                style="background: rgb(219,142,44);border-style: none;border-radius: 10px;">Book
-                                Table</button></div>
+                                style="background: rgb(219,142,44);border-style: none;border-radius: 10px;">Resubmit</button></div>
                     </form>
                 </div>
             </div>

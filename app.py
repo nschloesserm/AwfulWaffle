@@ -66,10 +66,10 @@ def contact():
 
 @app.route("/admin")
 def admin():
-    customers = Customer.query.all()
+    customers = Customer.query.order_by(Customer.resdate and Customer.restime)
     return render_template("admin.html", customers=customers)
 
-@app.route('/<int:customer_id>/edit/', methods=('GET', 'POST'))
+@app.route('/<int:customer_id>/editcustomer/', methods=('GET', 'POST'))
 def edit(customer_id):
     customer = Customer.query.get_or_404(customer_id)
 
@@ -80,7 +80,6 @@ def edit(customer_id):
         resdate = request.form['resdate']
         partysize = int(request.form['partysize'])
         restime = request.form['restime']
-        specialmessage = request.form['specialmessage']
 
         customer.fullname = fullname
         customer.email = email
@@ -88,7 +87,6 @@ def edit(customer_id):
         customer.resdate = resdate
         customer.partysize = partysize
         customer.restime = restime
-        customer.specialmessage = specialmessage
 
         db.session.add(customer)
         db.session.commit()
@@ -96,6 +94,13 @@ def edit(customer_id):
         return redirect(url_for('admin'))
 
     return render_template('editcustomer.html', customer=customer)
+
+@app.post('/<int:customer_id>/delete/')
+def delete(customer_id):
+    customer = Customer.query.get_or_404(customer_id)
+    db.session.delete(customer)
+    db.session.commit()
+    return redirect(url_for('admin'))
 
 if __name__ == "__main__":
     app.run(
