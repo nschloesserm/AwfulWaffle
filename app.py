@@ -6,6 +6,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+bookings = []
 
 @app.route("/")
 def index():
@@ -32,7 +33,8 @@ def admin():
     party_size = request.form.get("party_size")
     time = request.form.get("time")
     message = request.form.get("message")
-    return render_template("admin.html", full_name=full_name, email=email, telephone=telephone, date=date, party_size=party_size, time=time, message=message)
+    bookings.append(f"{full_name} {email} {telephone} || {date} {party_size} || {time} || {message}")
+    return render_template("admin.html", bookings=bookings)
 
 if __name__ == "__main__":
     app.run(
