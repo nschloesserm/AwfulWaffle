@@ -33,7 +33,7 @@ def admin():
     party_size = request.form.get("party_size")
     time = request.form.get("time")
     message = request.form.get("message")
-    bookings.append(f"{full_name} {email} {telephone} || {date} {party_size} || {time} || {message}")
+    bookings.append(f"{full_name} {email} {telephone} {date} {party_size} {time} {message}")
     return render_template("admin.html", bookings=bookings)
 
 if __name__ == "__main__":

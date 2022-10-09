@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Admin</h1>
-
-    {{bookings}}
-    
+<h1>Admin</h1>
+    <ul>
+    {% for booking in bookings %}
+    <li>{{bookings}}</li> 
+    {% endfor %}
+    </ul>
 {% endblock %}
