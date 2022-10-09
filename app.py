@@ -1,10 +1,27 @@
-
-
 import os
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 
-app = Flask(__name__)
+def create_app():
+    app = Flask(__name__)
+
+    with app.app_context():
+        init_db()
+
+    return app
+    
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bookedtables.db'
+
+db = SQLAlchemy(app)
+
+class BookedTables(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+
+    def __repr__(self):
+        return '<Name %r>' %self.id
 
 bookings = []
 
@@ -35,7 +52,7 @@ def admin():
     message = request.form.get("message")
 
     if not full_name or not email or not telephone or not date:
-        error_statement = "Field Required"
+        error_statement = "Fields Required!"
         return render_template("booktable.html",
             error_statement=error_statement,
             full_name=full_name,
