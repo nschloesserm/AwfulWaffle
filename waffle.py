@@ -1,29 +1,23 @@
 import os
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 
-def create_app():
-    app = Flask(__name__)
+app = Flask(__name__)
 
-    with app.app_context():
-        init_db()
-
-    return app
-    
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///bookedtables.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///instance/bookedtables.db'
 
 db = SQLAlchemy(app)
 
-class BookedTables(db.Model):
+
+class Bookedtables(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
 
     def __repr__(self):
-        return '<Name %r>' %self.id
+        return '<Name %r>' % self.id
 
-bookings = []
 
 @app.route("/")
 def index():
@@ -41,7 +35,7 @@ def booktable():
 def contact():
     return render_template("contact.html")
 
-@app.route("/admin", methods=["POST"])
+@app.route("/admin", methods=["POST","GET"])
 def admin():
     full_name = request.form.get("full_name")
     email = request.form.get("email")
@@ -50,18 +44,25 @@ def admin():
     party_size = request.form.get("party_size")
     time = request.form.get("time")
     message = request.form.get("message")
-
+        
     if not full_name or not email or not telephone or not date:
         error_statement = "Fields Required!"
-        return render_template("booktable.html",
-            error_statement=error_statement,
-            full_name=full_name,
-            email=email,
-            telephone=telephone,
-            date=date) 
+        return render_template("booktable.html", error_statement= error_statement, full_name=full_name, email=email, telephone=telephone, date=date) 
 
-    bookings.append(f"{full_name} {email} {telephone} {date} {party_size} {time} {message}")
-    return render_template("admin.html", bookings=bookings)
+    if request.method == "POST":
+        cust_name = request.form['full_name']
+        new_cust = Bookedtables(name=cust_name)
+
+        try:
+            db.session.add(new_cust)
+            db.session.commit()
+            return redirect('/booktable')
+            
+        except:
+            return "there was an error"
+    else:
+        customers = Bookedtables.query
+        return render_template("admin.html", customers=customers)
 
 if __name__ == "__main__":
     app.run(
