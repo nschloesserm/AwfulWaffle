@@ -1,9 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Admin</h1>
-    <ul>
+<div class="content">
     {% for customer in customers %}
-    <li>{{ customers.name }}</li> 
+        <div class="student">
+            <b>
+                <p class="name">{{ customer.fullname }}</p>
+            </b>
+            <p>{{ customer.email }}</p>
+            <p>{{ customer.phone }}</p>
+            <p>{{ customer.resdate }}</p>
+            <p>{{ customer.partysize }}</p>
+            <p>{{ customer.restime }}</p>
+            <p>Requested on {{ customer.created_at }}</p>
+            <div class="bio">
+                <h4>message</h4>
+                <p>{{ customer.specialmessage }}</p>
+            </div>
+        </div>
     {% endfor %}
-    </ul>
+</div>
 {% endblock %}
