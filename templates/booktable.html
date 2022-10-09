@@ -7,15 +7,16 @@
             <div class="card">
                 <div class="card-body text-center p-sm-5">
                     <h2 class="font-weight-bold mb-3" style="margin-bottom: 20px;">Book a table!</h2>
+                    <p style="color: red;">{{ error_statement }}</p>
                     <form action="{{ url_for('admin') }}" method="POST">
                         <div class="mb-3">
                             <input class="form-control" type="text" id="name-2" name="full_name" placeholder="Name"
-                                style="margin-bottom: 20px;">
+                                style="margin-bottom: 20px;" value="{{ full_name }}">
                             <input class="form-control" type="email" id="email-2" name="email" placeholder="Email"
-                                style="margin-bottom: 20px;">
+                                style="margin-bottom: 20px;" value="{{ email }}">
                             <input class="form-control" type="tel" name="telephone" placeholder="Telephone"
-                                style="margin-bottom: 20px;">
-                            <input class="form-control" type="date" name ="date" style="margin-bottom: 20px;">
+                                style="margin-bottom: 20px;" value="{{ telephone }}">
+                            <input class="form-control" type="date" name ="date" style="margin-bottom: 20px;" value="{{ date }}">
                             <h5 class="text-left">Number in party:</h5>
                             <p class="text-left" style="color: rgba(83,88,92,0.7);font-size: 10px;">
                                 If party is more than 6 please contact us for availability!</p>

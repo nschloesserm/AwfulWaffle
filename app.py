@@ -33,6 +33,16 @@ def admin():
     party_size = request.form.get("party_size")
     time = request.form.get("time")
     message = request.form.get("message")
+
+    if not full_name or not email or not telephone or not date:
+        error_statement = "Field Required"
+        return render_template("booktable.html",
+            error_statement=error_statement,
+            full_name=full_name,
+            email=email,
+            telephone=telephone,
+            date=date) 
+
     bookings.append(f"{full_name} {email} {telephone} {date} {party_size} {time} {message}")
     return render_template("admin.html", bookings=bookings)
 
