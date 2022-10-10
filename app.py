@@ -1,7 +1,7 @@
 import os
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, json
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from datetime import date, datetime, timedelta
 
 from sqlalchemy.sql import func
 
@@ -41,6 +41,7 @@ def menu():
 @app.route("/booktable", methods=('GET', 'POST'))
 def booktable():
     if request.method == 'POST':
+        id = request.form['id']
         fullname = request.form['fullname']
         email = request.form['email']
         phone = request.form['phone']
@@ -48,7 +49,8 @@ def booktable():
         partysize = int(request.form['partysize'])
         restime = request.form['restime']
         specialmessage = request.form['specialmessage']
-        customer = Customer(fullname=fullname,
+        customer = Customer(id=id,
+                          fullname=fullname,
                           email=email,
                           phone=phone,
                           resdate=resdate,
@@ -65,7 +67,7 @@ def booktable():
 def contact():
     return render_template("contact.html")
 
-@app.route("/admin")
+@app.route("/admin", methods=('GET', 'POST'))
 def admin():
     customers = Customer.query.order_by(Customer.resdate or Customer.restime)
     return render_template("admin.html", customers=customers)

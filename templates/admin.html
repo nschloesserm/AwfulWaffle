@@ -2,8 +2,14 @@
 {% block content %}
 <br>
 <h1 class="text-center">Manage Bookings:</h1>
+<p id="selectDate"></p>
+<form method="POST">
+    <div class="mb-3">
+        <input id= "dateform" onchange="checkDate()" type="date" name ="selectdate" style="margin-bottom: 20px;">
+    </div>
+</form>
 {% for customer in customers %}
-<section class="py-4 py-xl-5">
+<section class="py-4 py-xl-5" id="{{customer.id}}" style="display: block;">
     <div class="container">
         <div class="text-white bg-info border rounded border-info d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5"
             style="background: var(--blue);">
@@ -15,7 +21,7 @@
             </div>
             <div class="pb-2 pb-lg-1" style="border-width: 7.5px;border-style: solid;border-radius: 5px;margin: 5px;">
                 <h3 class="font-weight-bold text-center mb-2" style="padding: 10px;">Date</h3>
-                <p class="text-center mb-0" style="font-size: 26px;padding: 7px;">{{ customer.resdate }}</p>
+                <p class="text-center mb-0" id= "custResDate" style="font-size: 26px;padding: 7px;">{{ customer.resdate }}</p>
             </div>
             <div class="pb-2 pb-lg-1" style="border-width: 7.5px;border-style: solid;border-radius: 5px;margin: 5px;">
                 <h3 class="font-weight-bold text-center mb-2" style="padding: 10px;">Time</h3>
