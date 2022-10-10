@@ -2,14 +2,15 @@
 {% block content %}
 <br>
 <h1 class="text-center">Manage Bookings:</h1>
-<p id="selectDate"></p>
-<form method="POST">
-    <div class="mb-3">
+<p class="text-center" id="selectDate">Select Date:</p>
+<div class="mb-3 text-center">
         <input id= "dateform" onchange="checkDate()" type="date" name ="selectdate" style="margin-bottom: 20px;">
-    </div>
+</div>
+<form method="POST">
+    
 </form>
 {% for customer in customers %}
-<section class="py-4 py-xl-5" id="customersection">
+<section class="py-4 py-xl-5" id="customersection" style="display: none;">
     <div class="container">
         <div class="text-white bg-info border rounded border-info d-flex flex-column justify-content-between flex-lg-row p-4 p-md-5"
             style="background: var(--blue);">
