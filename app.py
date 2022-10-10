@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 from sqlalchemy.sql import func
 
@@ -66,7 +67,7 @@ def contact():
 
 @app.route("/admin")
 def admin():
-    customers = Customer.query.order_by(Customer.resdate and Customer.restime)
+    customers = Customer.query.order_by(Customer.resdate or Customer.restime)
     return render_template("admin.html", customers=customers)
 
 @app.route('/<int:customer_id>/editcustomer/', methods=('GET', 'POST'))
