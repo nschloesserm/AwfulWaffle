@@ -4,11 +4,11 @@ function checkDate() {
     document.getElementById("selectDate").innerHTML = x + y;
     var arrayLength = y.length
     for (var i = 0; i < arrayLength; i++) {
-       /* if (x != y[i]) {
-            document.getElementsByClassName("cust" + (i + 1)).style.display = "none";
+        if (x != y[i]) {
+            document.getElementById("cust" + (i + 1)).style.display = "none";
         } else {
-            document.getElementsByClassName("cust" + (i + 1)).style.display = "block";
-        }  */
+            document.getElementById("cust" + (i + 1)).style.display = "block";
+        }  
         console.log("cust" + (i + 1));
         console.log(y[i]);
             }
