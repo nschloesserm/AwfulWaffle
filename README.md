@@ -1,4 +1,4 @@
-# The Aweful Waffle
+# The Awful Waffle
 
 ![mockup](static/img/all-devices-white.png)
 
